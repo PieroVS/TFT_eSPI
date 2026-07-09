@@ -16,6 +16,9 @@
   display. Modification of this sketch may lead to problems
   unless the ILI9341 data sheet has been understood!
 
+  // If you want to use other drivers, modify the variables ILI9341_VSCRDEF and ILI9341_VSCRSADD 
+  // for your specific driver. You can check them in TFT_eSPI/TFT_Drivers/<Driver>_Defines.h
+
   Updated by Bodmer 21/12/16 for TFT_eSPI library:
   https://github.com/Bodmer/TFT_eSPI
   
@@ -128,6 +131,8 @@ int scroll_line() {
 // ##############################################################################################
 // We are using a hardware feature of the display, so we can only scroll in portrait orientation
 void setupScrollArea(uint16_t tfa, uint16_t bfa) {
+  // if you want to use other drivers, modify this variable ILI9341_VSCRDEF for the specific library driver
+  // You can see in TFT_eSPI/TFT_Drivers/<Driver>_Defines.h
   tft.writecommand(ILI9341_VSCRDEF); // Vertical scroll definition
   tft.writedata(tfa >> 8);           // Top Fixed Area line count
   tft.writedata(tfa);
